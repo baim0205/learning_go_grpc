@@ -5,6 +5,7 @@ import (
 	"crypto/sha256"
 	"database/sql"
 	"fmt"
+	"log"
 	"time"
 
 	pbAuth "github.com/rohim/auth-service/proto/protoc"
@@ -32,6 +33,9 @@ func hashPassword(password string) string {
 
 func (s *AuthServer) Login(ctx context.Context, req *pbAuth.LoginRequest) (*pbAuth.LoginResponse, error) {
 	username, password := req.GetUsername(), req.GetPassword()
+
+	// Logging username dan password (ingat untuk tidak mencetak password di lingkungan produksi)
+	log.Printf("Received login request: Username: %s, Password: %s", username, password)
 
 	var storedHash string
 	err := database.DB.QueryRow("SELECT password_hash FROM users WHERE username = ?", username).Scan(&storedHash)
