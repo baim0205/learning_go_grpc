@@ -16,7 +16,7 @@ Project pembelajaran ini terdiri dari dua microservices: Layanan Autentikasi dan
    cd auth-crud-grpc
 
 2. **Setup Database**:
-   ***Buat database MySQL atau MariaDB***:
+   ##### Buat database MySQL atau MariaDB :
    ```sql
    CREATE DATABASE crud_service;
    USE crud_service;
@@ -24,3 +24,22 @@ Project pembelajaran ini terdiri dari dua microservices: Layanan Autentikasi dan
        id INT AUTO_INCREMENT PRIMARY KEY,
        name VARCHAR(255) NOT NULL
    );
+
+3. **Install Dependencies**:
+   ##### Di dalam direktori `auth-service` dan `crud-service`, jalankan perintah berikut:
+   ```bash
+   go mod tidy
+
+
+### Running Service
+1. **service auth**:
+   ```bash
+   cd auth-service
+   go run main.go
+AuthService akan berjalan di `localhost:50051`
+
+2. **service CRUD**:
+   ```bash
+   cd crud-service
+   go run main.go
+CRUDService akan berjalan di `localhost:50052`
