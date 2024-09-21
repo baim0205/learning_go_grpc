@@ -14,3 +14,13 @@ Project pembelajaran ini terdiri dari dua microservices: Layanan Autentikasi dan
    ```bash
    git clone https://github.com/your-repo/auth-crud-grpc.git
    cd auth-crud-grpc
+
+2. **Setup Database**:
+   ***Buat database MySQL atau MariaDB***:
+   ```sql
+   CREATE DATABASE crud_service;
+   USE crud_service;
+   CREATE TABLE items (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(255) NOT NULL
+   );
