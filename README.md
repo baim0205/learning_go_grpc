@@ -95,7 +95,7 @@ CRUDService akan berjalan di `localhost:50052`
 ##### MySQL/MariaDB: Database yang digunakan untuk operasi CRUD.
 ### Struktur Folder
 
-```json
+```bash
 .
 ├── auth-service
 │   ├── main.go
