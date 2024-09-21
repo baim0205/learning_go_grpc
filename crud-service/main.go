@@ -1,9 +1,10 @@
 package main
 
 import (
-	"crud-service/server"
 	"log"
 	"net"
+
+	"github.com/rohim/crud-service/server"
 
 	pbCrud "github.com/rohim/crud-service/proto/protoc"
 
