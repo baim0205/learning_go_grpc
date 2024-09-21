@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package auth;
+
+// Specify the Go package path where this code will be generated
+option go_package = "/protoc;auth";
+
+service AuthService {
+    rpc Login(LoginRequest) returns (LoginResponse);
+    rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string token = 1;
+    string message = 2;
+}
+
+message ValidateTokenRequest {
+    string token = 1;
+}
+
+message ValidateTokenResponse {
+    bool valid = 1;
+    string message = 2;
+}
