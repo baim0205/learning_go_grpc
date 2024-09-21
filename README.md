@@ -38,6 +38,7 @@ Project pembelajaran ini terdiri dari dua microservices: Layanan Autentikasi dan
 CRUDService akan berjalan di `localhost:50052`
 
 ### Running the Services
+
 1. **service auth**:
    ```bash
    cd auth-service
@@ -66,3 +67,48 @@ CRUDService akan berjalan di `localhost:50052`
     }
 5. Anda akan menerima JWT token jika login berhasil. Simpan token ini untuk digunakan di Layanan CRUD.
 
+**Service CRUD**:
+
+1. Buka permintaan gRPC baru di Postman.
+2. Masukkan URL: localhost:50052.
+3. Pilih salah satu metode CRUD (Create, Read, Update, Delete).
+4. Kirim permintaan dengan token dan data yang relevan.
+
+    Contoh metode Create dan Read : 
+
+   ```json
+    {
+    "username": "your-username",
+    "password": "your-password"
+    }
+
+
+    {
+    "token": "your-jwt-token",
+    "id": 1
+    }
+
+### Teknologi yang Digunakan
+##### Go: Digunakan untuk membangun kedua layanan (Autentikasi dan CRUD).
+##### gRPC: Untuk komunikasi antara layanan dan klien.
+##### JWT: Untuk autentikasi dan validasi token.
+##### MySQL/MariaDB: Database yang digunakan untuk operasi CRUD.
+### Struktur Folder
+
+```json
+.
+├── auth-service
+│   ├── main.go
+│   ├── server.go
+│   └── proto
+│       └── protoc-auth
+│           └── auth.proto
+├── crud-service
+│   ├── main.go
+│   ├── server.go
+│   ├── database
+│   │   └── database.go
+│   └── proto
+│       └── protoc
+│           └── crud.proto
+└── README.md
