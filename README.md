@@ -31,7 +31,13 @@ Project pembelajaran ini terdiri dari dua microservices: Layanan Autentikasi dan
    go mod tidy
 
 
-### Running Service
+2. **service CRUD**:
+   ```bash
+   cd crud-service
+   go run main.go
+CRUDService akan berjalan di `localhost:50052`
+
+### Running the Services
 1. **service auth**:
    ```bash
    cd auth-service
@@ -43,3 +49,20 @@ AuthService akan berjalan di `localhost:50051`
    cd crud-service
    go run main.go
 CRUDService akan berjalan di `localhost:50052`
+
+
+### Pengujian dengan Postman (gRPC)
+**Service Auth**:
+
+1. Buka Postman dan pilih gRPC.
+2. Masukkan URL: localhost:50051.
+3. Pilih metode Login (atau metode autentikasi lainnya yang sudah diimplementasikan).
+4. Kirim permintaan dengan parameter yang diperlukan, misalnya:
+
+   ```json
+    {
+    "username": "your-username",
+    "password": "your-password"
+    }
+5. Anda akan menerima JWT token jika login berhasil. Simpan token ini untuk digunakan di Layanan CRUD.
+
