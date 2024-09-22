@@ -1,0 +1,12 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: crud-one
+data:
+  DB_USER: root
+  DB_PASS: rootpassword
+  DB_NAME: crud_service
+  DB_HOST: mysql
+  DB_PORT: "3306"
